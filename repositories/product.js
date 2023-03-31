@@ -7,11 +7,11 @@ const getAllProducts = async () =>{
 }
 
 const getProductById = async (productId) =>{
-    let Product = await Product.findById(productId)
-    if(!Product) {
+    let product = await Product.findById(productId)
+    if(!product) {
         throw new Exception("Cannot find Product with id"+productId)
     }
-    return Product
+    return product
 }
 
 const insertProduct = async ({name, quantity, price}) =>{
@@ -32,9 +32,34 @@ const insertProduct = async ({name, quantity, price}) =>{
     
 }
 
+const updateProduct =async({
+    id,
+    name,
+    quantity,
+    price
+}) =>{
+    const product = await Product.findById(id)
+    product.name = name ?? product.name
+    product.quantity = quantity ?? product.quantity
+    product.price = price ?? product.price
+    await product.save()
+    return product
+
+}
+
+async function deleteProduct(productId) {
+    let product = await Product.findById(productId)
+    if(!product) {
+        throw new Exception("Cannot find Product with id"+productId)
+    }
+    await Product.deleteOne(product)
+    return true
+}
 export default {
     getAllProducts,
     getProductById,
-    insertProduct
+    insertProduct,
+    updateProduct,
+    deleteProduct
    
 }
