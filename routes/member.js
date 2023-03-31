@@ -7,13 +7,9 @@ import {
 
 const router = express.Router()
 router.get('/', memberController.getAllMember)
+router.post('/register', memberController.register)
+router.post('/login', memberController.login)
 
-// router.get('/:id', studentController.getStudentById)
 
-// //put or patch
-// router.patch('/', studentController.updateStudent)
-
-// router.post('/insert',studentController.insertStudent)
-//router.post('/generateFakeStudents',studentController.generateFakeStudents)
 
 export default router

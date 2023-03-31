@@ -6,14 +6,14 @@ import {
 } from '../controller/index.js'
 
 const router = express.Router()
-//router.get('/', memberController.getAllMembers)
+router.get('/', productController.getAllProduct)
 
-// router.get('/:id', studentController.getStudentById)
+ router.get('/:id', productController.getProductById)
 
 // //put or patch
 // router.patch('/', studentController.updateStudent)
 
-// router.post('/insert',studentController.insertStudent)
+ router.post('/insert',productController.insertproduct)
 //router.post('/generateFakeStudents',studentController.generateFakeStudents)
 
 export default router
