@@ -11,9 +11,9 @@ router.get('/', productController.getAllProduct)
  router.get('/:id', productController.getProductById)
 
 // //put or patch
-// router.patch('/', studentController.updateStudent)
+ router.put('/', productController.updateProduct)
 
  router.post('/insert',productController.insertproduct)
-//router.post('/generateFakeStudents',studentController.generateFakeStudents)
+router.delete('/:id',productController.deleteProductById)
 
 export default router
