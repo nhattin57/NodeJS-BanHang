@@ -7,7 +7,9 @@ import {memberRouter,
 } from './routes/index.js'
 import checkToken from './authentication/auth.js'
 import connect from './database/database.js'
+import cors from 'cors'
 const app = express()
+app.use(cors({ origin: true }));
 app.use(checkToken) //shield 
 app.use(express.json());
 
