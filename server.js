@@ -18,7 +18,7 @@ app.get('/',(req, res) =>{
 app.use('/member',memberRouter)
 app.use('/product',productRouter)
 
-const PORT = 3000 ?? 3005
+const PORT = 8080 ?? 3005
 
 app.listen(PORT, async() =>{
     await connect()
